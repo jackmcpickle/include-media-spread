@@ -1,0 +1,27 @@
+{
+  "name": "y",
+  "description": "An include-media plugin for spreading css properties over the breakpoints",
+  "main": "_spread.scss",
+  "authors": [
+    "Jack McNicol <jack@mcpickle.com.au>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "sass",
+    "media",
+    "queries",
+    "include-media",
+    "plugin",
+    "spread",
+    "properties"
+  ],
+  "homepage": "https://github.com/jackmcpickle/include-media-spread",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
