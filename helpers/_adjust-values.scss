@@ -1,0 +1,26 @@
+// Adjust values from list
+@function adjust-values($iteration, $start-values, $change-values, $total-iterations, $ease) {
+
+  $progress: $iteration / $total-iterations;
+
+  $adjusted-values: ();
+  @each $start, $change in $change-values {
+    // adjust value based on type of ease
+    $adjusted: ease($progress, $start, $change, $ease);
+    // adjust to 2 decimal places
+    $adjusted: round($adjusted * 100) / 100;
+    $adjusted-values: join($adjusted-values, $adjusted, space );
+  }
+  @return $adjusted-values;
+}
+
+@function change-values($start-value, $end-value) {
+  $multiple: length($start-value) != length($end-value);
+  $start-list: $start-value; $end-list: $end-value;
+  @if $multiple {
+    $start-list: split-list($start-value);
+    $end-list: split-list($end-value);
+  }
+  $change-list: compare-lists($start-list, $end-list);
+  @return zip($start-list, $change-list);
+}

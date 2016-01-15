@@ -4,9 +4,12 @@
 //   $end-values:    end value(s) of the property
 //   $ease:          easing function to use when calculating value
 //                   helpful for fine-tuning some widths in the mid-range
+//
+// Requires @import 'include-media' in your sass stack
 
+@import "helpers/adjust-values";
+@import "helpers/compare-lists";
 @import "helpers/ease";
-@import "helpers/modular-scale";
 
 @mixin spread($property, $start-values, $end-values, $ease: linear) {
   @if $start-values == $end-values {
