@@ -1,7 +1,8 @@
 {
-  "name": "y",
+  "name": "include-media-spread",
   "description": "An include-media plugin for spreading css properties over the breakpoints",
-  "main": "_spread.scss",
+  "main": ["./_spread.scss"],
+  "version": "1.0.0",
   "authors": [
     "Jack McNicol <jack@mcpickle.com.au>"
   ],
