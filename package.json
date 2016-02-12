@@ -1,6 +1,6 @@
 {
   "name": "include-media-spread",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An include-media plugin for spreading css properties over the breakpoints",
   "main": "./_spread.scss",
   "repository": {
