@@ -1,2 +1,37 @@
-.sass-cache
-*.css.map
+# Tmp files to always-ignore extensions
+*.diff
+*.err
+*.rej
+*.swo
+*~
+*.sass-cache
+.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+*.sublime-project
+*.sublime-workspace
+/.redcar
+/nbproject
+/.project
+/.idea
+/.eclipse
+*.vi
+*.log
+
+# Source Maps of transpiled
+*.map
+tags
+.ctags
+
+# packages
+node_modules
+bower_components
