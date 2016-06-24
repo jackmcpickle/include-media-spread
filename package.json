@@ -2,7 +2,7 @@
   "name": "include-media-spread",
   "version": "1.0.2",
   "description": "An include-media plugin for spreading css properties over the breakpoints",
-  "main": "./_spread.scss",
+  "main": "./dist/_spread.scss",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jackmcpickle/include-media-spread.git"
