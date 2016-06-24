@@ -1,0 +1,42 @@
+/// @author Jack McNicol
+/// @access public
+////
+
+
+///
+/// Calculates the difference between property values and distributes them through your include-media breakpoints.
+///
+
+///  @param {property} $property - CSS property to set
+//   @param {value | values} $start-values - Start value(s) of the property
+//   @param {value | values} $end-values - End value(s) of the property
+//   @param {linear | in-quad | out-quad | in-cubic | out-cubic | in-quart | out-quart | in-quint | out-quint } $ease [linear] - Easing function to use when calculating value helpful for fine-tuning some widths in the mid-range
+///
+///
+
+$im-breakpoints: $breakpoints !default;
+
+@mixin spread($property, $start-values, $end-values, $ease: linear) {
+  @if $start-values == $end-values {
+    @warn 'You are passing the same values';
+  }
+
+  #{$property}: #{$start-values};   // default values
+
+  $total-iterations: length($im-breakpoints); // Will loop through number of breakpoints
+  $iteration: 1;
+  $change-map-list: change-map-list($start-values, $end-values);
+
+  @each $size, $breakpoint in $im-breakpoints {
+    @if ( $iteration <= $total-iterations) {
+
+      $progress: $iteration / $total-iterations;
+
+      @include media('>=#{$breakpoint}') {
+        #{$property}: adjust-values($progress, $change-map-list, $ease);
+      }
+
+    }
+    $iteration: $iteration + 1;
+  }
+}

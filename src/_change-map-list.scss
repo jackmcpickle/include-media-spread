@@ -1,0 +1,22 @@
+@function change-map-list($start-value, $end-value) {
+
+  $different-lengths: length($start-value) != length($end-value);
+  $start-list: $start-value;
+  $end-list: $end-value;
+
+  @if $different-lengths {
+    // Split lists into comparable values
+    $start-list: split-list($start-value);
+    $end-list: split-list($end-value);
+  }
+
+  $change-value-list: change-value-list($start-list, $end-list);
+  $change-map-list: ();
+
+  @each $start, $change in zip($start-list, $change-value-list) {
+
+    $change-map: (start: $start, change: $change);
+    $change-map-list: join($change-map-list, $change-map, comma);
+  }
+  @return $change-map-list;
+}

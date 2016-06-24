@@ -46,33 +46,3 @@
     @return $change * (pow($progress - 1, 5) + 1) + $start-value;
   }
 }
-
-// pow and sqrt required by ease function
-// adapted from https://github.com/at-import/Sassy-math/blob/master/sass/math.scss
-@function pow($base, $exponent) {
-  $value: $base;
-
-  @if $exponent > 1 {
-    @for $i from 2 through $exponent {
-      $value: $value * $base;
-    }
-  }
-
-  @if $exponent < 1 {
-    @for $i from 0 through - $exponent {
-      $value: $value / $base;
-    }
-  }
-
-  @return $value;
-}
-
-@function sqrt($number) {
-  $root: 4;
-
-  @for $i from 1 through 50 {
-    $root: $root - (pow($root, 2) - $number) / (2 * $root);
-  }
-
-  @return $root;
-}
