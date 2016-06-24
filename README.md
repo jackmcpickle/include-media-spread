@@ -1,6 +1,10 @@
 # include-media - Spread plugin
 An include-media plugin for spreading css properties over breakpoints
 
+[![NPM](https://nodei.co/npm/include-media-spread.png)](https://nodei.co/npm/include-media-spread/)
+
+[![Build Status](https://travis-ci.org/jackmcpickle/include-media-spread.svg?branch=master)](https://travis-ci.org/jackmcpickle/include-media-spread)
+
 ## Requirements
 
 * Sass >= 3.4.x
