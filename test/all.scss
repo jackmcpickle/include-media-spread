@@ -1,0 +1,17 @@
+@import 'true';
+@import 'node_modules/include-media/dist/include-media';
+
+@import '../dist/spread';
+
+@import 'functions/test-ease';
+@import 'functions/test-split-lists';
+@import 'functions/test-change-value-list';
+@import 'functions/test-change-map-list';
+@import 'functions/test-adjust-values';
+
+
+@import 'mixins/test-font-size';
+@import 'mixins/test-padding';
+@import 'mixins/test-easing';
+
+@include report;

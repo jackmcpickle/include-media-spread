@@ -1,0 +1,24 @@
+@include test-module('Compare lists') {
+
+  @include test('Combines lists by matching pairs [function]') {
+    $start: (20px 10px 20px 10px);
+    $end: (80px 20px 80px 20px);
+
+    $test: change-value-list($start, $end);
+    $expect: (60px, 10px, 60px, 10px);
+    @include assert-equal($test, $expect,
+      'returns list of changed value pairs');
+
+  }
+
+  @include test('Compare single value list [function]') {
+    $start: 10px;
+    $end: 80px;
+
+    $test: change-value-list($start, $end);
+    $expect: 70px,;
+    @include assert-equal($test, $expect,
+      'returns a list of changed value');
+
+  }
+}

@@ -1,0 +1,42 @@
+@include test-module('Split Values') {
+
+  @include test('Split 1 value [function]') {
+    $list: (10rem);
+
+    $test: split-list($list);
+    $expect: (10rem 10rem 10rem 10rem);
+    @include assert-equal($test, $expect,
+      'returns the adjusted top right bottom left value back');
+
+  }
+
+  @include test('Split 2 values [function]') {
+    $list: (20px 10px);
+
+    $test: split-list($list);
+    $expect: (20px 10px 20px 10px);
+    @include assert-equal($test, $expect,
+      'returns the adjusted top right bottom left value back');
+
+  }
+
+  @include test('Split 3 values [function]') {
+    $list: (40em 20em 10em);
+
+    $test: split-list($list);
+    $expect: (40em 20em 10em 20em);
+    @include assert-equal($test, $expect,
+      'returns the adjusted top right bottom left value back');
+
+  }
+
+  @include test('Split 4 values [function]') {
+    $list: (40% 20% 10% 30%);
+
+    $test: split-list($list);
+    $expect: (40% 20% 10% 30%);
+    @include assert-equal($test, $expect,
+      'returns the adjusted top right bottom left value back');
+
+  }
+}

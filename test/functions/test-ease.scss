@@ -1,0 +1,86 @@
+@include test-module('Easing') {
+  $progress: 2;
+  $start-value: 20px;
+  $change: 10px;
+
+  @include test('Ease linear [function]') {
+    $ease: linear;
+    $test: ease($progress, $start-value, $change, $ease);
+    $expect: 40px;
+    @include assert-equal($test, $expect,
+      'returns the adjusted value back');
+
+  }
+
+  @include test('Ease in-quad [function]') {
+    $ease: in-quad;
+    $test: ease($progress, $start-value, $change, $ease);
+    $expect: 60px;
+    @include assert-equal($test, $expect,
+      'returns the adjusted value back');
+
+  }
+
+  @include test('Ease out-quad [function]') {
+    $ease: out-quad;
+    $test: ease($progress, $start-value, $change, $ease);
+    $expect: 20px;
+    @include assert-equal($test, $expect,
+      'returns the adjusted value back');
+
+  }
+
+  @include test('Ease in-cubic [function]') {
+    $ease: in-cubic;
+    $test: ease($progress, $start-value, $change, $ease);
+    $expect: 100px;
+    @include assert-equal($test, $expect,
+      'returns the adjusted value back');
+
+  }
+
+  @include test('Ease out-cubic [function]') {
+    $ease: out-cubic;
+    $test: ease($progress, $start-value, $change, $ease);
+    $expect: 40px;
+    @include assert-equal($test, $expect,
+      'returns the adjusted value back');
+
+  }
+
+  @include test('Ease in-quart [function]') {
+    $ease: in-quart;
+    $test: ease($progress, $start-value, $change, $ease);
+    $expect: 180px;
+    @include assert-equal($test, $expect,
+      'returns the adjusted value back');
+
+  }
+
+  @include test('Ease out-quart [function]') {
+    $ease: out-quart;
+    $test: ease($progress, $start-value, $change, $ease);
+    $expect: 20px;
+    @include assert-equal($test, $expect,
+      'returns the adjusted value back');
+
+  }
+
+  @include test('Ease in-quint [function]') {
+    $ease: in-quint;
+    $test: ease($progress, $start-value, $change, $ease);
+    $expect: 340px;
+    @include assert-equal($test, $expect,
+      'returns the adjusted value back');
+
+  }
+
+  @include test('Ease out-quint [function]') {
+    $ease: out-quint;
+    $test: ease($progress, $start-value, $change, $ease);
+    $expect: 40px;
+    @include assert-equal($test, $expect,
+      'returns the adjusted value back');
+
+  }
+}
