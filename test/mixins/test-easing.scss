@@ -1,35 +1,96 @@
 @include test-module('Spread Mixin') {
 
-  // Testing Mixins
   @include test('Font Size scaling in-quad [mixin]') {
     @include assert('Outputs a scaling font size over media breakpoints') {
-      @include input {
-        .heading-1 {
-          @include spread(font-size, 1rem, 3rem, 'in-quad');
-        }
+      @include output {
+        @include spread(font-size, 1rem, 3rem, 'in-quad');
       }
 
       @include expect {
-        .heading-1 {
-          font-size: 1rem;
-        }
+        font-size: 1rem;
 
         @media (min-width: 320px) {
-          .heading-1 {
-            font-size: 1.67rem;
-          }
+          font-size: 1.22rem;
         }
 
         @media (min-width: 768px) {
-          .heading-1 {
-            font-size: 2.33rem;
-          }
+          font-size: 1.89rem;
         }
 
         @media (min-width: 1024px) {
-          .heading-1 {
-            font-size: 3rem;
-          }
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+
+  @include test('Font Size scaling out-quad [mixin]') {
+    @include assert('Outputs a scaling font size over media breakpoints') {
+      @include output {
+        @include spread(font-size, 1rem, 3rem, 'out-quad');
+      }
+
+      @include expect {
+        font-size: 1rem;
+
+        @media (min-width: 320px) {
+          font-size: 2.11rem;
+        }
+
+        @media (min-width: 768px) {
+          font-size: 2.78rem;
+        }
+
+        @media (min-width: 1024px) {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+
+  @include test('Font Size scaling out-quint [mixin]') {
+    @include assert('Outputs a scaling font size over media breakpoints') {
+      @include output {
+        @include spread(font-size, 1rem, 3rem, 'out-quint');
+      }
+
+      @include expect {
+        font-size: 1rem;
+
+        @media (min-width: 320px) {
+          font-size: 2.74rem;
+        }
+
+        @media (min-width: 768px) {
+          font-size: 2.99rem;
+        }
+
+        @media (min-width: 1024px) {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+
+  @include test('Font Size scaling in-cubic [mixin]') {
+    @include assert('Outputs a scaling font size over media breakpoints') {
+      @include output {
+        @include spread(font-size, 1rem, 3rem, 'in-cubic');
+      }
+
+      @include expect {
+        font-size: 1rem;
+
+        @media (min-width: 320px) {
+          font-size: 1.07rem;
+        }
+
+        @media (min-width: 768px) {
+          font-size: 1.59rem;
+        }
+
+        @media (min-width: 1024px) {
+          font-size: 3rem;
         }
       }
     }

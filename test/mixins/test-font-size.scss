@@ -1,9 +1,8 @@
 @include test-module('Spread Mixin') {
 
-// Testing Mixins
   @include test('Font Size [mixin]') {
     @include assert('Outputs a scaling font size over media breakpoints') {
-      @include input {
+      @include output {
         .heading-1 {
           @include spread(font-size, 1rem, 3rem);
         }

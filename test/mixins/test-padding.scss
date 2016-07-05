@@ -1,34 +1,24 @@
 @include test-module('Spread Mixin') {
 
-// Testing Mixins
   @include test('Padding with mixed values [mixin]') {
     @include assert('Outputs scaling padding values over media breakpoints') {
-      @include input {
+      @include output {
         @include spread(padding, 15px, 20px 30px 10px);
       }
 
       @include expect {
-
-        .module-block {
-          padding: 15px;
-        }
+        padding: 15px;
 
         @media (min-width: 320px) {
-          .module-block {
-            padding: 16.67px 20px 13.33px 20px;
-          }
+          padding: 16.67px 20px 13.33px 20px;
         }
 
         @media (min-width: 768px) {
-          .module-block {
-            padding: 18.33px 25px 11.67px 25px;
-          }
+          padding: 18.33px 25px 11.67px 25px;
         }
 
         @media (min-width: 1024px) {
-          .module-block {
-            padding: 20px 30px 10px 30px;
-          }
+          padding: 20px 30px 10px 30px;
         }
       }
     }
