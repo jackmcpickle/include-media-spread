@@ -1,0 +1,27 @@
+@include test-module('Spread Mixin') {
+
+  @include test('Padding scaling with custom breakpoints [mixin]') {
+    @include assert('Outputs a scaling padding over media breakpoints') {
+      $breakpoints: (
+        'break1': 123px,
+        'break2': 456px,
+      );
+
+      @include output {
+        @include spread(padding, 1rem, 3rem, $breakpoints: $breakpoints);
+      }
+
+      @include expect {
+        padding: 1rem;
+
+        @media (min-width: 123px) {
+          padding: 2rem;
+        }
+
+        @media (min-width: 456px) {
+          padding: 3rem;
+        }
+      }
+    }
+  }
+}
