@@ -188,20 +188,20 @@
 ///
 ///
 
-$im-breakpoints: $breakpoints !default;
+$ims-breakpoints: $breakpoints !default;
 
-@mixin spread($property, $start-values, $end-values, $ease: linear) {
+@mixin spread($property, $start-values, $end-values, $ease: linear, $breakpoints: $ims-breakpoints) {
   @if $start-values == $end-values {
     @warn 'You are passing the same values';
   }
 
   #{$property}: #{$start-values};   // default values
 
-  $total-iterations: length($im-breakpoints); // Will loop through number of breakpoints
+  $total-iterations: length($breakpoints); // Will loop through number of breakpoints
   $iteration: 1;
   $change-map-list: change-map-list($start-values, $end-values);
 
-  @each $size, $breakpoint in $im-breakpoints {
+  @each $size, $breakpoint in $breakpoints {
     @if ( $iteration <= $total-iterations) {
 
       $progress: $iteration / $total-iterations;
