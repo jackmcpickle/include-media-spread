@@ -97,6 +97,50 @@ Allows you to pass top/right/bottom/left values and spread will calculate the di
 }
 ```
 
+
+### Custom breakpoints
+
+You can either override globally the breakpoints Include Media Spread will use by default by setting `$ims-breakpoints`. By default it uses the default include-media breakpoints.
+
+*Example*
+
+```scss
+$my-breakpoints: (small: 340px, large: 1000px);
+$ims-breakpoints: $my-breakpoints;
+
+@import 'include-media-spread';
+```
+
+**Or** you to pass custom-breakpoint per mixin.
+
+*Example*
+
+```scss
+$custom-breakpoints: (small: 15em, large: 40em);
+
+.module-block {
+  @include spread(padding, 10px, 30px, $breakpoints: $custom-breakpoints);
+}
+```
+
+*Generates*
+
+```css
+.module-block {
+  padding: 10px;
+}
+@media (min-width: 15em) {
+  .module-block {
+    padding: 20px;
+  }
+}
+@media (min-width: 40em) {
+  .module-block {
+    padding: 30px;
+  }
+}
+```
+
 ## Install
 
 * Bower - `bower install include-media-spread`
