@@ -27,7 +27,7 @@
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.0",
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "^3.0.0",
     "gulp-sass-lint": "^1.1.1",
     "mocha": "^3.0.2",
     "node-sass": "^3.8.0",
