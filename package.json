@@ -30,7 +30,7 @@
     "gulp-sass": "^2.3.2",
     "gulp-sass-lint": "^1.1.1",
     "mocha": "^3.0.2",
-    "node-sass": "^3.8.0",
+    "node-sass": "^4.0.0",
     "run-sequence": "^1.2.1",
     "sass-true": "^2.1.0"
   },
