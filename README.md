@@ -3,7 +3,7 @@ An include-media plugin for spreading css properties over breakpoints
 
 [![NPM](https://nodei.co/npm/include-media-spread.png)](https://nodei.co/npm/include-media-spread/)
 
-[![Build Status](https://travis-ci.org/jackmcpickle/include-media-spread.svg?branch=master)](https://travis-ci.org/jackmcpickle/include-media-spread)
+[![Build Status](https://travis-ci.org/jackmcpickle/include-media-spread.svg?branch=master)](https://travis-ci.org/jackmcpickle/include-media-spread) [![Dev Dependencies](https://david-dm.org/jackmcpickle/include-media-spread/dev-status.svg)](https://david-dm.org/jackmcpickle/flex_e_ble?type=dev&view=list)
 
 ## Requirements
 
