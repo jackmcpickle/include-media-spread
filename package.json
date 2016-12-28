@@ -36,7 +36,7 @@
   },
   "scripts": {
     "start": "gulp",
-    "test": "mocha",
+    "test": "mocha && bundle exec true-cli test/all.scss || true",
     "sass": "node-sass",
     "prepublish": "npm run test"
   },

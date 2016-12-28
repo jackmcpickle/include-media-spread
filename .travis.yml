@@ -1,7 +1,9 @@
 language: node_js
+# just declaring sudo uses non travis container with ruby 2
+sudo: required
+exclude: vendor/bundle/*
+before_script:
+  - bundle
 node_js:
-  - "6"
-  - "6.1"
-  - "6.0"
-  - "5"
-  - "4"
+  - '7'
+  - '6'
