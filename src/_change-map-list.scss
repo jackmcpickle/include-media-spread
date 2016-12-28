@@ -11,12 +11,11 @@
   }
 
   $change-value-list: change-value-list($start-list, $end-list);
-  $change-map-list: ();
+  $full-change-map-list: ();
 
   @each $start, $change in zip($start-list, $change-value-list) {
-
-    $change-map: (start: $start, change: $change);
-    $change-map-list: join($change-map-list, $change-map, comma);
+    $change-map-list: (start: $start, change: $change),;
+    $full-change-map-list: join($full-change-map-list, $change-map-list, comma);
   }
-  @return $change-map-list;
+  @return $full-change-map-list;
 }
