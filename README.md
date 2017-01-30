@@ -1,4 +1,6 @@
 # include-media - Spread plugin
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/jackmcpickle/include-media-spread.svg)](https://greenkeeper.io/)
 An include-media plugin for spreading css properties over breakpoints
 
 [![NPM](https://nodei.co/npm/include-media-spread.png)](https://nodei.co/npm/include-media-spread/)
