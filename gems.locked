@@ -16,16 +16,16 @@ GEM
       sass (>= 3.2, < 3.5)
     ffi (1.9.18)
     multi_json (1.10.1)
-    rb-fsevent (0.9.8)
-    rb-inotify (0.9.8)
-      ffi (>= 0.5.0)
-    sass (3.4.23)
+    rb-fsevent (0.10.2)
+    rb-inotify (0.9.10)
+      ffi (>= 0.5.0, < 2)
+    sass (3.4.25)
     sassy_hash (0.1.1)
       sass (~> 3.3rc2)
     serialy-sassy (1.0.1)
       multi_json (~> 1.10.1)
       sassy_hash (~> 0.1.1)
-    true (2.2.1)
+    true (2.2.2)
       sass (~> 3.4)
 
 PLATFORMS
@@ -37,4 +37,4 @@ DEPENDENCIES
   true
 
 BUNDLED WITH
-   1.14.6
+   1.15.3
