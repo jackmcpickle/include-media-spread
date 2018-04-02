@@ -2525,9 +2525,9 @@ sass-lint@^1.12.0:
     path-is-absolute "^1.0.0"
     util "^0.10.3"
 
-sass-true@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/sass-true/-/sass-true-3.0.1.tgz#d868e0b16f546c56dda42aab05780e41bd36d02b"
+sass-true@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/sass-true/-/sass-true-3.1.0.tgz#8099ad19e08c7819db41ff9c4a3ac4db8f50a6f0"
   dependencies:
     css "^2.2.1"
     css-selector-parser "^1.1.0"
