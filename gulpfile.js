@@ -1,6 +1,5 @@
 const gulp         = require('gulp');
 const concat       = require('gulp-concat');
-const clean        = require('gulp-clean');
 const sassLint     = require('gulp-sass-lint');
 const sass         = require('gulp-sass');
 const runSequence  = require('run-sequence');
@@ -14,7 +13,7 @@ const _paths = {
 
   includes: [
     'node_modules/sass-true/sass',
-    'node_modules/include-media/dist',
+    'node_modules/include-media/dist'
   ]
 };
 
@@ -30,10 +29,8 @@ gulp.task( 'sassLint', () => {
   .pipe( sassLint.format() );
 });
 
-gulp.task( 'clean', () => {
-  return gulp.src( _paths.build, { read: false } )
-  .pipe( clean() );
-});
+gulp.task('clean', require('del').bind(null, [_paths.build]));
+
 
 gulp.task( 'test', () => {
   return gulp.src( _paths.tests )
