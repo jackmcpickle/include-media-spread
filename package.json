@@ -25,7 +25,7 @@
   "devDependencies": {
     "gulp": "3.9.1",
     "gulp-concat": "2.6.1",
-    "gulp-sass": "4.0.1",
+    "gulp-sass": "4.0.2",
     "gulp-sass-lint": "1.4.0",
     "mocha": "5.2.0",
     "run-sequence": "2.2.1",
