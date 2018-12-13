@@ -23,17 +23,19 @@
   },
   "homepage": "https://github.com/jackmcpickle/include-media-spread#readme",
   "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/register": "^7.0.0",
     "gulp": "4.0.0",
     "gulp-concat": "2.6.1",
     "gulp-sass": "4.0.2",
     "gulp-sass-lint": "1.4.0",
     "mocha": "5.2.0",
-    "run-sequence": "2.2.1",
     "sass-true": "4.0.0"
   },
   "scripts": {
     "start": "gulp",
-    "test": "mocha",
+    "test": "gulp test && mocha",
     "prepublish": "npm run test"
   },
   "dependencies": {
