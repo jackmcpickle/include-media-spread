@@ -24,7 +24,7 @@
   "homepage": "https://github.com/jackmcpickle/include-media-spread#readme",
   "devDependencies": {
     "@babel/core": "7.2.2",
-    "@babel/preset-env": "7.2.3",
+    "@babel/preset-env": "7.3.0",
     "@babel/register": "7.0.0",
     "gulp": "4.0.0",
     "gulp-concat": "2.6.1",
