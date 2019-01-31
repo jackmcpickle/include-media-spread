@@ -39,4 +39,4 @@ bower_components
 vendor
 
 # built
-dist
+dist/all.css
