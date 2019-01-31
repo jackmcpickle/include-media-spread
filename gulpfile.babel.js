@@ -1,4 +1,4 @@
-import gulp from 'gulp';
+import {src, dest, series} from 'gulp';
 import concat from 'gulp-concat';
 import sassLint from 'gulp-sass-lint';
 import sass from 'gulp-sass';
@@ -18,24 +18,24 @@ const _paths = {
 };
 
 export const merge = () =>
-    gulp.src(_paths.build_scss)
+    src(_paths.build_scss)
         .pipe(concat(_paths.dist_file))
-        .pipe(gulp.dest(_paths.build));
+        .pipe(dest(_paths.build));
 
 export const lintStyles = () =>
-    gulp.src(_paths.scss)
+    src(_paths.scss)
         .pipe(sassLint())
         .pipe(sassLint.format());
 
 
-export const clean = del.bind([_paths.build]);
+export const clean = (done) => { del([_paths.build]).then(() => done()) }
 
 export const test = () =>
-    gulp.src(_paths.tests)
+    src(_paths.tests)
         .pipe(sass({
             includePaths: _paths.includes
         }))
-        .pipe(gulp.dest(_paths.build));
+        .pipe(dest(_paths.build));
 
 
-export default gulp.series(clean, lintStyles, merge);
+export default series(clean, lintStyles, merge);
