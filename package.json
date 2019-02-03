@@ -23,11 +23,11 @@
   },
   "homepage": "https://github.com/jackmcpickle/include-media-spread#readme",
   "devDependencies": {
-    "concat": "^1.0.3",
+    "concat": "1.0.3",
     "mocha": "5.2.0",
     "sass-true": "4.0.0",
-    "node-sass": "^4.11.0",
-    "sass-lint": "^1.12.1"
+    "node-sass": "4.11.0",
+    "sass-lint": "1.12.1"
   },
   "scripts": {
     "start": "node-sass --include-path node_modules ./test/test-output.scss ./dist/test-output.css",
