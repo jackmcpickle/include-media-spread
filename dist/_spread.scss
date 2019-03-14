@@ -146,21 +146,21 @@
     $left: $list;
   }
   // top/bottom match, left/right match
-  @elseif ($list-size == 2) {
+  @else if ($list-size == 2) {
     $top: nth($list, 1);
     $bottom: nth($list, 1);
     $right: nth($list, 2);
     $left: nth($list, 2);
   }
   // top/bottom differ, left/right match
-  @elseif ($list-size == 3) {
+  @else if ($list-size == 3) {
     $top: nth($list, 1);
     $right: nth($list, 2);
     $left: nth($list, 2);
     $bottom: nth($list, 3);
   }
   // top/bottom/left/right differ
-  @elseif ($list-size == 4) {
+  @else if ($list-size == 4) {
     @return $list;
 
   } @else {
