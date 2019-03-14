@@ -1,8 +1,0 @@
-.test {
-  margin: 10px; }
-  @media (min-width: 300px) {
-    .test {
-      margin: 22.5px 12.5px 17.5px 12.5px; } }
-  @media (min-width: 900px) {
-    .test {
-      margin: 60px 20px 40px 20px; } }
