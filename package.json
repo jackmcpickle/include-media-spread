@@ -25,14 +25,15 @@
   "devDependencies": {
     "concat": "1.0.3",
     "mocha": "6.0.2",
-    "sass-true": "4.0.0",
     "node-sass": "4.11.0",
-    "sass-lint": "1.12.1"
+    "sass": "1.17.2",
+    "sass-lint": "1.12.1",
+    "sass-true": "4.0.0"
   },
   "scripts": {
-    "start": "node-sass --include-path node_modules ./test/test-output.scss ./dist/test-output.css",
+    "compile": "sass test/all.scss dist/all.css",
     "lint": "sass-lint 'src/*.scss' -v -q",
-    "test": "npm run lint && mocha",
+    "test": "npm run compile && npm run lint && mocha",
     "build": "concat -o dist/_spread.scss src/**",
     "prepublish": "npm run test"
   },
