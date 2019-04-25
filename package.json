@@ -27,7 +27,7 @@
     "mocha": "6.1.4",
     "node-sass": "4.11.0",
     "sass": "1.19.0",
-    "sass-lint": "1.12.1",
+    "sass-lint": "1.13.0",
     "sass-true": "4.0.0"
   },
   "scripts": {
