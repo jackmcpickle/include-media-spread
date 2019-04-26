@@ -1,7 +1,5 @@
 files:
-  include:
-    - '**/*.scss'
-    - '**/*.sass'
+  include: '**/*.scss'
 options:
   formatter: stylish
   merge-default-rules: false
@@ -61,7 +59,6 @@ rules:
     -
       exclude:
         - 'media'
-        - 'hover'
   nesting-depth:
     - 1
     - max-depth: 3
@@ -77,7 +74,7 @@ rules:
   no-empty-rulesets: 1
   no-extends: 0
   no-ids: 1
-  no-important: 1
+  no-important: 0
   no-invalid-hex: 1
   no-mergeable-selectors: 1
   no-misspelled-properties:
@@ -91,11 +88,11 @@ rules:
   no-trailing-zero: 1
   no-transition-all: 0
   no-url-protocols: 1
-  no-vendor-prefixes:
-    - 1
-    - additional-identifiers: []
-      excluded-identifiers: []
-  no-warn: 0
+  no-property-vendor-prefix: 1
+  no-value-vendor-prefix: 1
+  no-at-rule-vendor-prefix: 1
+  no-selector-vendor-prefix: 1
+  no-media-feature-vendor-prefix: 1
   placeholder-in-extend: 1
   placeholder-name-format:
     - 1
