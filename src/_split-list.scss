@@ -12,23 +12,23 @@
     $right: $list;
     $bottom: $list;
     $left: $list;
-  }
-  // top/bottom match, left/right match
-  @else if ($list-size == 2) {
+
+  } @else if ($list-size == 2) {
+    // top/bottom match, left/right match
     $top: nth($list, 1);
     $bottom: nth($list, 1);
     $right: nth($list, 2);
     $left: nth($list, 2);
-  }
-  // top/bottom differ, left/right match
-  @else if ($list-size == 3) {
+
+  } @else if ($list-size == 3) {
+    // top/bottom differ, left/right match
     $top: nth($list, 1);
     $right: nth($list, 2);
     $left: nth($list, 2);
     $bottom: nth($list, 3);
-  }
-  // top/bottom/left/right differ
-  @else if ($list-size == 4) {
+
+  } @else if ($list-size == 4) {
+    // top/bottom/left/right differ
     @return $list;
 
   } @else {
