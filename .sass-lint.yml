@@ -88,11 +88,11 @@ rules:
   no-trailing-zero: 1
   no-transition-all: 0
   no-url-protocols: 1
-  no-property-vendor-prefix: 1
-  no-value-vendor-prefix: 1
-  no-at-rule-vendor-prefix: 1
-  no-selector-vendor-prefix: 1
-  no-media-feature-vendor-prefix: 1
+  # no-property-vendor-prefix: 1
+  # no-value-vendor-prefix: 1
+  # no-at-rule-vendor-prefix: 1
+  # no-selector-vendor-prefix: 1
+  # no-media-feature-vendor-prefix: 1
   placeholder-in-extend: 1
   placeholder-name-format:
     - 1
