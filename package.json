@@ -25,7 +25,7 @@
   "devDependencies": {
     "concat": "1.0.3",
     "mocha": "6.2.2",
-    "node-sass": "4.13.0",
+    "node-sass": "4.13.1",
     "sass": "1.24.4",
     "sass-lint": "1.13.1",
     "sass-true": "4.0.0"
