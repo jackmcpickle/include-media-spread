@@ -1,10 +1,8 @@
 // Adjust values from list
 @function adjust-values($progress, $change-values-map, $ease) {
-
   $adjusted-values: ();
 
   @each $change-value-pair in $change-values-map {
-
     $start: map-get($change-value-pair, start);
     $change: map-get($change-value-pair, change);
     // adjust value based on type of ease
@@ -12,7 +10,6 @@
     // adjust to 2 decimal places
     $adjusted: round($adjusted * 100) / 100;
     $adjusted-values: join($adjusted-values, $adjusted, space);
-
   }
 
   @return clean-list($adjusted-values);

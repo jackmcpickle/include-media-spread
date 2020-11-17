@@ -2,7 +2,6 @@
 /// @access public
 ////
 
-
 ///
 /// Calculates the difference between property values and distributes them through your include-media breakpoints.
 ///
@@ -16,26 +15,30 @@
 
 $ims-breakpoints: $breakpoints !default;
 
-@mixin spread($property, $start-values, $end-values, $ease: linear, $breakpoints: $ims-breakpoints) {
+@mixin spread(
+  $property,
+  $start-values,
+  $end-values,
+  $ease: linear,
+  $breakpoints: $ims-breakpoints
+) {
   @if $start-values == $end-values {
     @warn 'You are passing the same values';
   }
 
-  #{$property}: #{$start-values};   // default values
+  #{$property}: #{$start-values}; // default values
 
   $total-iterations: length($breakpoints); // Will loop through number of breakpoints
   $iteration: 1;
   $change-map-list: change-map-list($start-values, $end-values);
 
   @each $size, $breakpoint in $breakpoints {
-    @if ( $iteration <= $total-iterations) {
-
+    @if ($iteration <= $total-iterations) {
       $progress: $iteration / $total-iterations;
 
       @include media('>=#{$breakpoint}') {
         #{$property}: adjust-values($progress, $change-map-list, $ease);
       }
-
     }
     $iteration: $iteration + 1;
   }

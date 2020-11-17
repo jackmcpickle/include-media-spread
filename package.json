@@ -25,14 +25,14 @@
   "devDependencies": {
     "concat": "1.0.3",
     "mocha": "8.2.1",
-    "node-sass": "4.14.1",
+    "node-sass": "5.0.0",
+    "prettier": "2.1.2",
     "sass": "1.29.0",
-    "sass-lint": "1.13.1",
-    "sass-true": "5.0.0"
+    "sass-true": "6.0.1"
   },
   "scripts": {
     "compile": "sass test/all.scss dist/all.css",
-    "lint": "sass-lint 'src/*.scss' -v -q",
+    "lint": "prettier --check src",
     "test": "npm run compile && npm run lint && mocha",
     "build": "concat -o dist/_spread.scss src/**",
     "prepublish": "npm run test"

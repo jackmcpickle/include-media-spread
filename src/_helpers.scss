@@ -1,8 +1,6 @@
 // Fixes issue with single value list adding comma to end
 @function clean-list($list) {
-
   @return if(length($list) == 1, nth($list, 1), $list);
-
 }
 
 // pow and sqrt required by ease function

@@ -1,5 +1,4 @@
 @function split-list($list) {
-
   $list-size: length($list);
   $top: '';
   $left: '';
@@ -12,29 +11,24 @@
     $right: $list;
     $bottom: $list;
     $left: $list;
-
   } @else if ($list-size == 2) {
     // top/bottom match, left/right match
     $top: nth($list, 1);
     $bottom: nth($list, 1);
     $right: nth($list, 2);
     $left: nth($list, 2);
-
   } @else if ($list-size == 3) {
     // top/bottom differ, left/right match
     $top: nth($list, 1);
     $right: nth($list, 2);
     $left: nth($list, 2);
     $bottom: nth($list, 3);
-
   } @else if ($list-size == 4) {
     // top/bottom/left/right differ
     @return $list;
-
   } @else {
     @warn 'Your #{list} is too large with #{$list-size} properties';
   }
 
   @return $top $right $bottom $left;
-
 }
