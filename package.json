@@ -38,6 +38,6 @@
     "prepublish": "npm run test"
   },
   "dependencies": {
-    "include-media": "1.4.9"
+    "include-media": "1.4.10"
   }
 }
