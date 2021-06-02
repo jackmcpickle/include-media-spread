@@ -27,7 +27,7 @@
     "mocha": "8.4.0",
     "node-sass": "5.0.0",
     "prettier": "2.3.0",
-    "sass": "1.34.0",
+    "sass": "1.34.1",
     "sass-true": "6.0.1"
   },
   "scripts": {
