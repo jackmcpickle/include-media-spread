@@ -24,7 +24,7 @@
   "homepage": "https://github.com/jackmcpickle/include-media-spread#readme",
   "devDependencies": {
     "concat": "1.0.3",
-    "mocha": "8.4.0",
+    "mocha": "9.1.3",
     "node-sass": "6.0.1",
     "prettier": "2.4.1",
     "sass": "1.43.2",
