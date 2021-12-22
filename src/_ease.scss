@@ -17,31 +17,31 @@
 
   // value accelerates sharply
   @if $ease == in-cubic {
-    @return $change * pow($progress, 3) + $start-value;
+    @return $change * math.pow($progress, 3) + $start-value;
   }
 
   // value decelerates sharply
   @if $ease == out-cubic {
-    @return $change * (pow($progress - 1, 3) + 1) + $start-value;
+    @return $change * (math.pow($progress - 1, 3) + 1) + $start-value;
   }
 
   // value accelerates more sharply
   @if $ease == in-quart {
-    @return $change * pow($progress, 4) + $start-value;
+    @return $change * math.pow($progress, 4) + $start-value;
   }
 
   // value decelerates more sharply
   @if $ease == out-quart {
-    @return -$change * (pow($progress - 1, 4) - 1) + $start-value;
+    @return -$change * (math.pow($progress - 1, 4) - 1) + $start-value;
   }
 
   // value accelerates very sharply
   @if $ease == in-quint {
-    @return $change * pow($progress, 5) + $start-value;
+    @return $change * math.pow($progress, 5) + $start-value;
   }
 
   // value decelerates very sharply
   @if $ease == out-quint {
-    @return $change * (pow($progress - 1, 5) + 1) + $start-value;
+    @return $change * (math.pow($progress - 1, 5) + 1) + $start-value;
   }
 }

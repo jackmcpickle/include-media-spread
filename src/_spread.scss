@@ -34,7 +34,7 @@ $ims-breakpoints: $breakpoints !default;
 
   @each $size, $breakpoint in $breakpoints {
     @if ($iteration <= $total-iterations) {
-      $progress: $iteration / $total-iterations;
+      $progress: math.div($iteration, $total-iterations);
 
       @include media('>=#{$breakpoint}') {
         #{$property}: adjust-values($progress, $change-map-list, $ease);

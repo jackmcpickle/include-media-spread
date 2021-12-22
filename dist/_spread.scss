@@ -1,25 +1,21 @@
 // Adjust values from list
 @function adjust-values($progress, $change-values-map, $ease) {
-
   $adjusted-values: ();
 
   @each $change-value-pair in $change-values-map {
-
     $start: map-get($change-value-pair, start);
     $change: map-get($change-value-pair, change);
     // adjust value based on type of ease
     $adjusted: ease($progress, $start, $change, $ease);
     // adjust to 2 decimal places
-    $adjusted: round($adjusted * 100) / 100;
+    $adjusted: math.div(round($adjusted * 100), 100);
     $adjusted-values: join($adjusted-values, $adjusted, space);
-
   }
 
   @return clean-list($adjusted-values);
 }
 
 @function change-map-list($start-value, $end-value) {
-
   $different-lengths: length($start-value) != length($end-value);
   $start-list: $start-value;
   $end-list: $end-value;
@@ -34,7 +30,10 @@
   $full-change-map-list: ();
 
   @each $start, $change in zip($start-list, $change-value-list) {
-    $change-map-list: (start: $start, change: $change),;
+    $change-map-list: (
+      start: $start,
+      change: $change,
+    );
     $full-change-map-list: join($full-change-map-list, $change-map-list, comma);
   }
   @return $full-change-map-list;
@@ -56,7 +55,6 @@
 
 // adapted from http://www.kirupa.com/forum/showthread.php?378287-Robert-Penner-s-Easing-Equations-in-Pure-JS-%28no-jQuery%29
 @function ease($progress, $start-value, $change, $ease) {
-
   // value increases evenly
   @if $ease == linear {
     @return $change * $progress + $start-value;
@@ -74,64 +72,42 @@
 
   // value accelerates sharply
   @if $ease == in-cubic {
-    @return $change * pow($progress, 3) + $start-value;
+    @return $change * math.pow($progress, 3) + $start-value;
   }
 
   // value decelerates sharply
   @if $ease == out-cubic {
-    @return $change * (pow($progress - 1, 3) + 1) + $start-value;
+    @return $change * (math.pow($progress - 1, 3) + 1) + $start-value;
   }
 
   // value accelerates more sharply
   @if $ease == in-quart {
-    @return $change * pow($progress, 4) + $start-value;
+    @return $change * math.pow($progress, 4) + $start-value;
   }
 
   // value decelerates more sharply
   @if $ease == out-quart {
-    @return -$change * (pow($progress - 1, 4) - 1) + $start-value;
+    @return -$change * (math.pow($progress - 1, 4) - 1) + $start-value;
   }
 
   // value accelerates very sharply
   @if $ease == in-quint {
-    @return $change * pow($progress, 5) + $start-value;
+    @return $change * math.pow($progress, 5) + $start-value;
   }
 
   // value decelerates very sharply
   @if $ease == out-quint {
-    @return $change * (pow($progress - 1, 5) + 1) + $start-value;
+    @return $change * (math.pow($progress - 1, 5) + 1) + $start-value;
   }
 }
 
 // Fixes issue with single value list adding comma to end
 @function clean-list($list) {
-
   @return if(length($list) == 1, nth($list, 1), $list);
-
 }
 
-// pow and sqrt required by ease function
-// adapted from https://github.com/at-import/Sassy-math/blob/master/sass/math.scss
-@function pow($base, $exponent) {
-  $value: $base;
-
-  @if $exponent > 1 {
-    @for $i from 2 through $exponent {
-      $value: $value * $base;
-    }
-  }
-
-  @if $exponent < 1 {
-    @for $i from 0 through - $exponent {
-      $value: $value / $base;
-    }
-  }
-
-  @return $value;
-}
-
+@use 'sass:math';
 @function split-list($list) {
-
   $list-size: length($list);
   $top: '';
   $left: '';
@@ -144,37 +120,31 @@
     $right: $list;
     $bottom: $list;
     $left: $list;
-  }
-  // top/bottom match, left/right match
-  @else if ($list-size == 2) {
+  } @else if ($list-size == 2) {
+    // top/bottom match, left/right match
     $top: nth($list, 1);
     $bottom: nth($list, 1);
     $right: nth($list, 2);
     $left: nth($list, 2);
-  }
-  // top/bottom differ, left/right match
-  @else if ($list-size == 3) {
+  } @else if ($list-size == 3) {
+    // top/bottom differ, left/right match
     $top: nth($list, 1);
     $right: nth($list, 2);
     $left: nth($list, 2);
     $bottom: nth($list, 3);
-  }
-  // top/bottom/left/right differ
-  @else if ($list-size == 4) {
+  } @else if ($list-size == 4) {
+    // top/bottom/left/right differ
     @return $list;
-
   } @else {
     @warn 'Your #{list} is too large with #{$list-size} properties';
   }
 
   @return $top $right $bottom $left;
-
 }
 
 /// @author Jack McNicol
 /// @access public
 ////
-
 
 ///
 /// Calculates the difference between property values and distributes them through your include-media breakpoints.
@@ -189,26 +159,30 @@
 
 $ims-breakpoints: $breakpoints !default;
 
-@mixin spread($property, $start-values, $end-values, $ease: linear, $breakpoints: $ims-breakpoints) {
+@mixin spread(
+  $property,
+  $start-values,
+  $end-values,
+  $ease: linear,
+  $breakpoints: $ims-breakpoints
+) {
   @if $start-values == $end-values {
     @warn 'You are passing the same values';
   }
 
-  #{$property}: #{$start-values};   // default values
+  #{$property}: #{$start-values}; // default values
 
   $total-iterations: length($breakpoints); // Will loop through number of breakpoints
   $iteration: 1;
   $change-map-list: change-map-list($start-values, $end-values);
 
   @each $size, $breakpoint in $breakpoints {
-    @if ( $iteration <= $total-iterations) {
-
-      $progress: $iteration / $total-iterations;
+    @if ($iteration <= $total-iterations) {
+      $progress: math.div($iteration, $total-iterations);
 
       @include media('>=#{$breakpoint}') {
         #{$property}: adjust-values($progress, $change-map-list, $ease);
       }
-
     }
     $iteration: $iteration + 1;
   }
