@@ -7,7 +7,7 @@ An include-media plugin for spreading css properties over breakpoints
 
 ## Requirements
 
-* Sass >= 3.4.x
+* Dart Sass >= 1.23.0
 * [include-media](https://github.com/eduardoboucas/include-media)
 
 ## Introduction
@@ -15,8 +15,8 @@ This plugin calculates the difference between property values and distributes th
 
 *Example*
 ```scss
-@import 'include-media';
-@import 'include-media-spread';
+@use 'include-media' as *;
+@use 'include-media-spread' as *;
 
 $breakpoints: (small: 480px, medium: 768px, large: 1024px);
 
@@ -108,7 +108,7 @@ You can either override globally the breakpoints Include Media Spread will use b
 $my-breakpoints: (small: 340px, large: 1000px);
 $ims-breakpoints: $my-breakpoints;
 
-@import 'include-media-spread';
+@use 'include-media-spread' as *;
 ```
 
 **Or** you to pass custom-breakpoint per mixin.
@@ -143,8 +143,9 @@ $custom-breakpoints: (small: 15em, large: 40em);
 
 ## Install
 
-* Bower - `bower install include-media-spread`
-* Manually - download [this file]() and include in your sass project
+* Npm - `npm install include-media-spread`
+* Yarn - `yarn add include-media-spread`
+* Manually - download `dist/_spread.scss` and include in your sass project
 
 ## Author
 
