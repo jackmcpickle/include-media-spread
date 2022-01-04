@@ -27,7 +27,7 @@
     // top/bottom/left/right differ
     @return $list;
   } @else {
-    @warn 'Your #{list} is too large with #{$list-size} properties';
+    @warn 'Your #{$list} is too large with #{$list-size} properties';
   }
 
   @return $top $right $bottom $left;
