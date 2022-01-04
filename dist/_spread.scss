@@ -1,15 +1,19 @@
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:list';
+
 // Adjust values from list
 @function adjust-values($progress, $change-values-map, $ease) {
   $adjusted-values: ();
 
   @each $change-value-pair in $change-values-map {
-    $start: map-get($change-value-pair, start);
-    $change: map-get($change-value-pair, change);
+    $start: map.get($change-value-pair, start);
+    $change: map.get($change-value-pair, change);
     // adjust value based on type of ease
     $adjusted: ease($progress, $start, $change, $ease);
     // adjust to 2 decimal places
     $adjusted: math.div(round($adjusted * 100), 100);
-    $adjusted-values: join($adjusted-values, $adjusted, space);
+    $adjusted-values: list.join($adjusted-values, $adjusted, space);
   }
 
   @return clean-list($adjusted-values);
@@ -29,12 +33,12 @@
   $change-value-list: change-value-list($start-list, $end-list);
   $full-change-map-list: ();
 
-  @each $start, $change in zip($start-list, $change-value-list) {
+  @each $start, $change in list.zip($start-list, $change-value-list) {
     $change-map-list: (
       start: $start,
       change: $change,
     );
-    $full-change-map-list: join($full-change-map-list, $change-map-list, comma);
+    $full-change-map-list: list.append($full-change-map-list, $change-map-list, $separator: comma);
   }
   @return $full-change-map-list;
 }
@@ -47,7 +51,7 @@
 
   @each $l in $list {
     $change: nth($l, 2) - nth($l, 1);
-    $change-value-list: join($change-value-list, $change, comma);
+    $change-value-list: list.join($change-value-list, $change, $separator: comma);
   }
 
   @return $change-value-list;
@@ -103,10 +107,9 @@
 
 // Fixes issue with single value list adding comma to end
 @function clean-list($list) {
-  @return if(length($list) == 1, nth($list, 1), $list);
+  @return if(list.length($list) == 1, list.nth($list, 1), $list);
 }
 
-@use 'sass:math';
 @function split-list($list) {
   $list-size: length($list);
   $top: '';
@@ -136,7 +139,7 @@
     // top/bottom/left/right differ
     @return $list;
   } @else {
-    @warn 'Your #{list} is too large with #{$list-size} properties';
+    @warn 'Your #{$list} is too large with #{$list-size} properties';
   }
 
   @return $top $right $bottom $left;
