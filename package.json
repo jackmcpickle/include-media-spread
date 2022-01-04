@@ -25,16 +25,19 @@
   "devDependencies": {
     "concat": "1.0.3",
     "mocha": "9.1.3",
-    "node-sass": "6.0.1",
     "prettier": "2.5.1",
     "sass": "1.45.1",
     "sass-true": "6.0.1"
   },
+  "peerDependencies": {
+    "sass": ">= 1.23.0"
+  },
   "scripts": {
-    "compile": "sass test/all.scss dist/all.css",
+    "sassTest": "sass test/all.scss dist/all.css",
     "lint": "prettier --check src",
-    "test": "npm run compile && npm run lint && mocha",
-    "build": "concat -o dist/_spread.scss src/**",
+    "pretest": "npm run build",
+    "test": "npm run sassTest && npm run lint && mocha",
+    "build": "concat -o dist/_spread.scss src/_modules.scss src/includes/** src/_spread.scss",
     "prepublish": "npm run test"
   },
   "dependencies": {
