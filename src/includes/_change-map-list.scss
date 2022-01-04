@@ -12,12 +12,12 @@
   $change-value-list: change-value-list($start-list, $end-list);
   $full-change-map-list: ();
 
-  @each $start, $change in zip($start-list, $change-value-list) {
+  @each $start, $change in list.zip($start-list, $change-value-list) {
     $change-map-list: (
-      start: $start,
-      change: $change,
+      'start': $start,
+      'change': $change,
     );
-    $full-change-map-list: join($full-change-map-list, $change-map-list, comma);
+    $full-change-map-list: list.append($full-change-map-list, $change-map-list, $separator: comma);
   }
   @return $full-change-map-list;
 }

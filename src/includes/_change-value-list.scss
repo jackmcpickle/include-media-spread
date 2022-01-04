@@ -6,7 +6,7 @@
 
   @each $l in $list {
     $change: nth($l, 2) - nth($l, 1);
-    $change-value-list: join($change-value-list, $change, comma);
+    $change-value-list: list.join($change-value-list, $change, $separator: comma);
   }
 
   @return $change-value-list;

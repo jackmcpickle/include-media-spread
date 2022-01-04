@@ -3,13 +3,13 @@
   $adjusted-values: ();
 
   @each $change-value-pair in $change-values-map {
-    $start: map-get($change-value-pair, start);
-    $change: map-get($change-value-pair, change);
+    $start: map.get($change-value-pair, start);
+    $change: map.get($change-value-pair, change);
     // adjust value based on type of ease
     $adjusted: ease($progress, $start, $change, $ease);
     // adjust to 2 decimal places
     $adjusted: math.div(round($adjusted * 100), 100);
-    $adjusted-values: join($adjusted-values, $adjusted, space);
+    $adjusted-values: list.join($adjusted-values, $adjusted, space);
   }
 
   @return clean-list($adjusted-values);
