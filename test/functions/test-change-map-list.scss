@@ -1,14 +1,12 @@
 @include test-module('Change Values') {
-
   @include test('Compare single values [function]') {
     $start-value: 20px;
     $end-value: 80px;
 
     $test: change-map-list($start-value, $end-value);
-    $expect: (start: 20px, change: 60px),;
+    $expect: ((start: 20px, change: 60px),);
 
-    @include assert-equal($test, $expect,
-      'Must be a list of start values and its difference');
+    @include assert-equal($test, $expect, 'Must be a list of start values and its difference');
   }
 
   @include test('Compare 2 value pairs [function]') {
@@ -16,11 +14,16 @@
     $end-value: 20px 10px;
 
     $test: change-map-list($start-value, $end-value);
-    $expect: (start: 5px, change: 15px),
-             (start: 10px, change: 0px);
+    $expect: (
+        start: 5px,
+        change: 15px,
+      ),
+      (
+        start: 10px,
+        change: 0px,
+      );
 
-    @include assert-equal($test, $expect,
-      'Must be a list of start values and its difference');
+    @include assert-equal($test, $expect, 'Must be a list of start values and its difference');
   }
 
   @include test('Compare single value with multiple values [function]') {
@@ -28,12 +31,23 @@
     $end-value: 50px 80px 10px;
 
     $test: change-map-list($start-value, $end-value);
-    $expect: (start: 20px, change: 30px),
-             (start: 20px, change: 60px),
-             (start: 20px, change: -10px),
-             (start: 20px, change: 60px);
+    $expect: (
+        start: 20px,
+        change: 30px,
+      ),
+      (
+        start: 20px,
+        change: 60px,
+      ),
+      (
+        start: 20px,
+        change: -10px,
+      ),
+      (
+        start: 20px,
+        change: 60px,
+      );
 
-    @include assert-equal($test, $expect,
-      'Must be a list of start values and its difference');
+    @include assert-equal($test, $expect, 'Must be a list of start values and its difference');
   }
 }

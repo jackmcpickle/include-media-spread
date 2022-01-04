@@ -1,8 +1,10 @@
+@use 'sass:math';
+
 @include test-module('Adjust Values') {
 
   @include test('Adjust 1 value pair [function]') {
     $change-map-list: ((start: 20px, change: 60px),);
-    $progress: 2 / 4;
+    $progress: math.div(2, 4);
     $ease: linear;
 
     $test: adjust-values($progress, $change-map-list, $ease);
@@ -16,7 +18,7 @@
   @include test('Adjust 2 value pairs [function]') {
     $change-map-list: (start: 5px, change: 15px),
                     (start: 10px, change: 0);
-    $progress: 1 / 4;
+    $progress: math.div(1, 4);
     $ease: linear;
 
     $test: adjust-values($progress, $change-map-list, $ease);
@@ -30,7 +32,7 @@
   @include test('Adjust 3 value pairs [function]') {
     $change-map-list: (start: 20%, change: 10%),
                     (start: 25%, change: 15%);
-    $progress: 1 / 4;
+    $progress: math.div(1, 4);
     $ease: out-quint;
 
     $test: adjust-values($progress, $change-map-list, $ease);
@@ -47,7 +49,7 @@
                     (start: 20px, change: 60px),
                     (start: 20px, change: -10px),
                     (start: 20px, change: 60px);
-    $progress: 3 / 4;
+    $progress: math.div(3, 4);
     $ease: linear;
 
     $test: adjust-values($progress, $change-map-list, $ease);
