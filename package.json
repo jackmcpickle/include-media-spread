@@ -26,7 +26,7 @@
     "concat": "1.0.3",
     "mocha": "9.2.2",
     "prettier": "2.7.1",
-    "sass": "1.54.0",
+    "sass": "1.54.1",
     "sass-true": "6.1.0"
   },
   "peerDependencies": {
